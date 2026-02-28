@@ -8,4 +8,12 @@ services:
       DEBUG_OUTPUT: "True"
     volumes:
       - ./config:/config:ro
+      - ./output:/output:rw
+    restart: unless-stopped
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./output:/usr/share/nginx/html:ro
+    ports:
+      - 80:80
     restart: unless-stopped
