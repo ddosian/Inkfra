@@ -1,0 +1,10 @@
+---
+services:
+  inkfra:
+    build:
+      context: .
+    environment:
+      CHECK_INTERVAL: "10"
+    volumes:
+      - ./config:/config:ro
+    restart: unless-stopped
