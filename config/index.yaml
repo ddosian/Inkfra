@@ -1,1 +1,14 @@
 title: "Inkfra Demo"
+theme: "catppuccin-mocha"
+content:
+  routers:
+    pfsense-01:
+      title: "pfsense-01"
+      color: "red"
+  compute:
+    pve-01:
+      title: "PVE-01"
+      color: "orange"
+    pve-02:
+      title: "PVE-02"
+      color: "orange"

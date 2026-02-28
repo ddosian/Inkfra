@@ -5,6 +5,7 @@ services:
       context: .
     environment:
       CHECK_INTERVAL: "10"
+      DEBUG_OUTPUT: "True"
     volumes:
       - ./config:/config:ro
     restart: unless-stopped
