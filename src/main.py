@@ -57,11 +57,12 @@ def main():
                     print(f"  | {file} is a yaml file")
                     print(f"  | Content: \n{content}")
 
-                export_file_name = file + ".html"
+                export_file_name = file.split(".")[0] + ".html"
 
                 print(f"Generating new HTML from {file} in {export_path}{export_file_name}")
 
-                html = skeleton_template.replace("TITLE", content["title"])
+                html = skeleton_template.replace("TITLE_CAPS", content["title"].upper())
+                html = html.replace("TITLE", content["title"])
                 
                 theme_variables = read_file(f"/app/themes/{content["theme"]}.css")
                 html = html.replace("THEME_VARIABLES", theme_variables)
@@ -72,9 +73,11 @@ def main():
                 body = generate_body(content, debug_output)
 
                 html = html.replace("BODY", body)
-                
+                html = html.replace("TAGS", generate_tags(content, debug_output))
                 if debug_output:
                     print(f"  | Generated HTML so far:\n{html}")
+
+                write_file(export_path + export_file_name, html)
 
 
 

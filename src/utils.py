@@ -20,3 +20,7 @@ def read_file(path):
 
 def read_yaml(path):
     return yaml.safe_load(read_file(path))
+
+def write_file(path, content):
+    with open(path, "w") as f:
+        f.write(content)

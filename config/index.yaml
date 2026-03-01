@@ -1,14 +1,23 @@
 title: "Inkfra Demo"
 theme: "catppuccin-mocha"
+tags: ["Networking", "Infrastructure"]
 content:
+  wan:
+    internet:
+      title: "Internet"
+      description: "ISP Uplink"
+      color: "yellow"
   routers:
     pfsense-01:
       title: "pfsense-01"
+      description: "Primary Firewall"
       color: "red"
   compute:
     pve-01:
       title: "PVE-01"
+      description: "Proxmox VE"
       color: "orange"
     pve-02:
       title: "PVE-02"
+      description: "Proxmox VE"
       color: "orange"

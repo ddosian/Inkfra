@@ -5,10 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TITLE</title>
     <style>
-      THEME_VARIABLES
+      @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Syne:wght@400;700;800&display=swap");
+
+      THEME_VARIABLES * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: var(--base);
+        color: var(--text);
+        font-family: "JetBrains Mono", monospace;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      .bg-grid {
+        position: fixed;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(180, 190, 254, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(180, 190, 254, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+        pointer-events: none;
+      }
+      header {
+        padding: 24px 40px;
+        border-bottom: 1px solid var(--surface-0);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: var(--mantle);
+      }
+      header h1 {
+        font-family: "Syne", sans-serif;
+        font-size: 1.4rem;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        color: var(--mauve);
+      }
+      header .tags {
+        font-size: 0.65rem;
+        background: rgba(203, 166, 247, 0.1);
+        border: 1px solid rgba(203, 166, 247, 0.3);
+        color: var(--mauve);
+        padding: 3px 10px;
+        border-radius: 20px;
+        letter-spacing: 0.1em;
+      }
     </style>
   </head>
   <body>
-    BODY
+    <div class="bg-grid"></div>
+    <header>
+      <h1>TITLE_CAPS</h1>
+      <span class="tags">TAGS</span>
+    </header>
+    <main>BODY</main>
+    <footer></footer>
   </body>
 </html>
