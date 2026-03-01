@@ -3,21 +3,40 @@ theme: "catppuccin-mocha"
 tags: ["Networking", "Infrastructure"]
 content:
   wan:
+    name: "WAN"
     internet:
+      icon: "mdi:cloud"
       title: "Internet"
       description: "ISP Uplink"
-      color: "yellow"
+      category: "networking-external"
   routers:
+    name: "Routers"
     pfsense-01:
+      icon: "mdi:router"
       title: "pfsense-01"
       description: "Primary Firewall"
-      color: "red"
+      category: "networking"
+    pfsense-02:
+      icon: "mdi:router"
+      title: "pfsense-02"
+      description: "Secondary Firewall"
+      category: "networking"
   compute:
+    name: "Compute"
     pve-01:
+      icon: "mdi:server"
       title: "PVE-01"
       description: "Proxmox VE"
-      color: "orange"
+      category: "proxmox"
     pve-02:
+      icon: "mdi:server"
       title: "PVE-02"
       description: "Proxmox VE"
-      color: "orange"
+      category: "proxmox"
+categories:
+  networking-external:
+    color: yellow
+  networking:
+    color: red
+  proxmox:
+    color: peach

@@ -66,8 +66,11 @@ def main():
                 
                 theme_variables = read_file(f"/app/themes/{content["theme"]}.css")
                 main_css = read_file("/app/templates/main.css")
-                theme_variables = theme_variables.replace("MAIN_CSS", main_css)
+                category_css = generate_category_css(content, debug_output)
+                
+                html = html.replace("MAIN_CSS", main_css)
                 html = html.replace("THEME_VARIABLES", theme_variables)
+                html = html.replace("CATEGORY_CSS", category_css)
 
                 if debug_output:
                     print(f"  | Generated HTML so far:\n{html}")
