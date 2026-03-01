@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="66 15 110 36">
+  <rect x="66" y="15" width="110" height="36" rx="6" fill="#eff1f5"/>
+  <text x="74" y="43"
+    font-family="'SF Pro Display', 'Inter', 'Helvetica Neue', Arial, sans-serif"
+    font-size="28" font-weight="600" letter-spacing="-0.5">
+    <tspan fill="#8839ef">ink</tspan><tspan fill="#4c4f69">fra</tspan>
+  </text>
+</svg>

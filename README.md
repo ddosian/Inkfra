@@ -1,4 +1,4 @@
-# Inkfra
+![Logo](/imgs/logo/mocha-no-bg.svg)
 
 [![Release](https://img.shields.io/github/v/release/ddosian/inkfra)](https://github.com/ddosian/Inkfra/releases/latest)
 [![Docker Hub](https://img.shields.io/docker/pulls/ddosian/inkfra)](https://hub.docker.com/r/ddosian/inkfra)
