@@ -65,6 +65,8 @@ def main():
                 html = html.replace("TITLE", content["title"])
                 
                 theme_variables = read_file(f"/app/themes/{content["theme"]}.css")
+                main_css = read_file("/app/templates/main.css")
+                theme_variables = theme_variables.replace("MAIN_CSS", main_css)
                 html = html.replace("THEME_VARIABLES", theme_variables)
 
                 if debug_output:
