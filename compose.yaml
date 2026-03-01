@@ -3,6 +3,7 @@ services:
   inkfra:
     build:
       context: .
+    image: ddosian/inkfra:latest
     environment:
       CHECK_INTERVAL: "10"
       DEBUG_OUTPUT: "True"
