@@ -9,6 +9,8 @@ body {
   font-family: "JetBrains Mono", monospace;
   min-height: 100vh;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 .bg-grid {
   position: fixed;
@@ -51,6 +53,7 @@ main {
   align-items: center;
   gap: 0;
   position: relative;
+  flex: 1;
 }
 
 .section {
@@ -109,4 +112,30 @@ main {
   font-size: 0.6rem;
   color: var(--overlay1);
   display: block;
+}
+
+footer {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 24px 40px;
+  border-top: 1px solid var(--surface-0);
+  margin-top: 20px;
+  background: var(--mantle);
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.6rem;
+  color: var(--overlay1);
+  letter-spacing: 0.1em;
+}
+
+.footer-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
 }

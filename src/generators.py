@@ -72,3 +72,15 @@ border: 1px solid var(--{category_color});
 }}"""
         all_category_css += category_css
     return all_category_css
+
+def generate_footer(content, debug_output):
+    categories = content["categories"]
+    footer_html_content = ""
+    for category_name, category_content in categories.items():
+        category_color = category_content["color"]
+        footer_item_html = f"""<div class="footer-item">
+<div class="footer-dot" style="background:var(--{category_color});"></div>
+{category_name.upper()}
+</div>"""
+        footer_html_content += footer_item_html
+    return footer_html_content

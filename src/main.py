@@ -63,10 +63,12 @@ def main():
                 theme_variables = read_file(f"/app/themes/{content["theme"]}.css")
                 main_css = read_file("/app/templates/main.css")
                 category_css = generate_category_css(content, debug_output)
+                footer_content = generate_footer(content, debug_output)
                 
                 html = html.replace("MAIN_CSS", main_css)
                 html = html.replace("THEME_VARIABLES", theme_variables)
                 html = html.replace("CATEGORY_CSS", category_css)
+                html = html.replace("FOOTER_CONTENT", footer_content)
 
                 if debug_output:
                     print(f"  | Generated HTML so far:\n{html}")
