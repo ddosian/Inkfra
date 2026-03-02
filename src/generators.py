@@ -67,11 +67,27 @@ def generate_category_css(content, debug_output):
             print(f"category content: {category_content}")
         category_color = category_content["color"]
         category_css = f""".category-{category_name} {{
-background-color: color-mix(in srgb, var(--{category_color}) 15%, transparent);
-border: 1px solid var(--{category_color});
+background-color: color-mix(in srgb, var(--{category_color}) 10%, transparent);
+border: 1px solid color-mix(in srgb, var(--{category_color}) 50%, transparent);
 }}"""
         all_category_css += category_css
     return all_category_css
+
+def generate_box_hover_css(content, debug_output):
+    categories = content["categories"]
+    all_box_hover_css = ""
+    for category_name, category_content in categories.items():
+        if debug_output:
+            print(f"current category: {category_name}")
+            print(f"category content: {category_content}")
+        category_color = category_content["color"]
+        box_hover_css = f""".box.category-{category_name}:hover {{
+background-color: color-mix(in srgb, var(--{category_color}) 20%, transparent);
+border-color: var(--{category_color});
+box-shadow: 0 8px 30px color-mix(in srgb, var(--{category_color}) 10%, transparent);
+}}"""
+        all_box_hover_css += box_hover_css
+    return all_box_hover_css
 
 def generate_footer(content, debug_output):
     categories = content["categories"]

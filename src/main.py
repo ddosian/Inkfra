@@ -60,14 +60,16 @@ def main():
                 html = skeleton_template.replace("TITLE_CAPS", content["title"].upper())
                 html = html.replace("TITLE", content["title"])
                 
-                theme_variables = read_file(f"/app/themes/{content["theme"]}.css")
+                theme_variables = read_file(f"/app/themes/{content['theme']}.css")
                 main_css = read_file("/app/templates/main.css")
                 category_css = generate_category_css(content, debug_output)
+                box_hover_css = generate_box_hover_css(content, debug_output)
                 footer_content = generate_footer(content, debug_output)
                 
                 html = html.replace("MAIN_CSS", main_css)
                 html = html.replace("THEME_VARIABLES", theme_variables)
                 html = html.replace("CATEGORY_CSS", category_css)
+                html = html.replace("BOX_HOVER_CSS", box_hover_css)
                 html = html.replace("FOOTER_CONTENT", footer_content)
 
                 if debug_output:
