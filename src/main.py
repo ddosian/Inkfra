@@ -31,16 +31,12 @@ def main():
     if config_directory[-1] != "/":
         config_directory += "/"
 
-    # Set theme
-    theme = grab_env("THEME", "catppuccin-mocha")
-
     if debug_output:
         print("Starting with the following env variables:")
         print(f" | DEBUG_OUTPUT: {debug_output}")
         print(f" | CHECK_INTERVAL: {check_interval}")
         print(f" | OUTPUT_DIR: {export_path}")
         print(f" | CONFIG_DIR: {config_directory}")
-        print(f" | THEME: {theme}")
 
     while True:
         files = os.listdir(config_directory)

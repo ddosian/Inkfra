@@ -107,13 +107,12 @@ Icons are specified using [Material Design Icons](https://materialdesignicons.co
 
 Control Inkfra's behavior with environment variables:
 
-| Variable         | Default            | Description                                       |
-| ---------------- | ------------------ | ------------------------------------------------- |
-| `CONFIG_DIR`     | `/config/`         | Directory containing YAML configuration files     |
-| `OUTPUT_DIR`     | `/output/`         | Directory where HTML output is generated          |
-| `THEME`          | `catppuccin-mocha` | Default theme to use                              |
-| `CHECK_INTERVAL` | `10`               | Interval (in seconds) to check for config changes |
-| `DEBUG_OUTPUT`   | `False`            | Enable debug logging                              |
+| Variable         | Default    | Description                                       |
+| ---------------- | ---------- | ------------------------------------------------- |
+| `CONFIG_DIR`     | `/config/` | Directory containing YAML configuration files     |
+| `OUTPUT_DIR`     | `/output/` | Directory where HTML output is generated          |
+| `CHECK_INTERVAL` | `10`       | Interval (in seconds) to check for config changes |
+| `DEBUG_OUTPUT`   | `False`    | Enable debug logging                              |
 
 ### Example with Environment Variables
 
