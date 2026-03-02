@@ -51,7 +51,7 @@ docker run -d \
    python src/main.py
    ```
 
-## 📋 Configuration
+## Configuration
 
 Create a YAML file in your config directory to define your diagram. Here's an example:
 
