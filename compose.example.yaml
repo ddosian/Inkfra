@@ -1,8 +1,6 @@
 ---
 services:
   inkfra:
-    build:
-      context: .
     image: ddosian/inkfra:latest
     volumes:
       - ./config:/config:ro
