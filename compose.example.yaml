@@ -6,7 +6,7 @@ services:
     image: ddosian/inkfra:latest
     environment:
       CHECK_INTERVAL: "10"
-      DEBUG_OUTPUT: "True"
+      DEBUG_OUTPUT: "False"
     volumes:
       - ./config:/config:ro
       - ./output:/output:rw
