@@ -1,3 +1,5 @@
+from utils import *
+
 def generate_tags(file, debug_output):
     if debug_output:
         print(f"Generating tags from {file}")
@@ -40,7 +42,16 @@ BOXES
             if debug_output:
                 print(f"  box: {box_name}")
                 print(f"  box content: {box_content}")
-            box_html = f"""<div class="box category-{box_category}" id="box-name-{box_name}">
+            if check_file_exists("/config/", box_name + ".yaml"):
+                box_html = f"""<div class="box category-{box_category}" id="box-name-{box_name}">
+<a href="{box_name}.html">
+{box_icon_html}
+<span class="box-title">{box_title}</span>
+<span class="box-description">{box_description}</span>
+</a>
+</div>"""
+            else:
+              box_html = f"""<div class="box category-{box_category}" id="box-name-{box_name}">
 {box_icon_html}
 <span class="box-title">{box_title}</span>
 <span class="box-description">{box_description}</span>

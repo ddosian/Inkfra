@@ -24,3 +24,10 @@ def read_yaml(path):
 def write_file(path, content):
   with open(path, "w") as f:
     f.write(content)
+
+def check_file_exists(path, filename):
+  files = os.listdir(path=path)
+  if filename in files:
+    return True
+  else:
+    return False

@@ -1,0 +1,15 @@
+title: "Inkfra Demo"
+theme: "catppuccin-mocha"
+tags: ["Networking", "Infrastructure"]
+content:
+  wan:
+    name: "WAN"
+    internet:
+      icon: "mdi:cloud"
+      title: "Internet"
+      description: "ISP Uplink"
+      category: "networking-external"
+
+categories:
+  networking-external:
+    color: yellow
