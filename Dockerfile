@@ -44,5 +44,8 @@ USER inkfra
 # Copy the source code into the container.
 COPY . .
 
+# Built-in web server port.
+EXPOSE 8080
+
 # Run the application.
 CMD python3 src/main.py
