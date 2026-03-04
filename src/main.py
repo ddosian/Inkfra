@@ -1,8 +1,19 @@
 import os
 import time
+import threading
+from functools import partial
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 from utils import *
 from generators import *
+
+def start_web_server(export_path):
+  # Serve generated files directly from the output directory.
+  handler = partial(SimpleHTTPRequestHandler, directory=export_path)
+  server = ThreadingHTTPServer(("0.0.0.0", 8080), handler)
+  print(f"Web server listening on 0.0.0.0:8080 and serving {export_path}")
+  server.serve_forever()
+
 
 def main():
   skeleton_template = read_file("/app/templates/skeleton.html")
@@ -30,6 +41,13 @@ def main():
   config_directory = grab_env("CONFIG_DIR", "/config/")
   if config_directory[-1] != "/":
     config_directory += "/"
+
+  web_thread = threading.Thread(
+    target=start_web_server,
+    args=(export_path),
+    daemon=True,
+  )
+  web_thread.start()
 
   if debug_output:
     print("Starting with the following env variables:")
