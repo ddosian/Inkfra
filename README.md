@@ -29,6 +29,7 @@ docker compose up -d
 
 ```bash
 docker run -d \
+  -p 80:8080 \
   -v $(pwd)/config:/config \
   -v $(pwd)/output:/output \
   -e THEME=catppuccin-mocha \
@@ -111,6 +112,7 @@ Control Inkfra's behavior with environment variables:
 | ---------------- | ---------- | ------------------------------------------------- |
 | `CONFIG_DIR`     | `/config/` | Directory containing YAML configuration files     |
 | `OUTPUT_DIR`     | `/output/` | Directory where HTML output is generated          |
+| `WEB_PORT`       | `8080`     | Port used by the built-in HTTP server             |
 | `CHECK_INTERVAL` | `10`       | Interval (in seconds) to check for config changes |
 | `DEBUG_OUTPUT`   | `False`    | Enable debug logging                              |
 
@@ -118,10 +120,12 @@ Control Inkfra's behavior with environment variables:
 
 ```bash
 docker run -d \
+  -p 80:8080 \
   -v $(pwd)/config:/config \
   -v $(pwd)/output:/output \
   -e CONFIG_DIR=/config/ \
   -e OUTPUT_DIR=/output/ \
+  -e WEB_PORT=8080 \
   -e THEME=catppuccin-latte \
   -e CHECK_INTERVAL=5 \
   -e DEBUG_OUTPUT=false \

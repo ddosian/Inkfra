@@ -1,8 +1,19 @@
 import os
 import time
+import threading
+from functools import partial
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 from utils import *
 from generators import *
+
+def start_web_server(export_path, web_port):
+  # Serve generated files directly from the output directory.
+  handler = partial(SimpleHTTPRequestHandler, directory=export_path)
+  server = ThreadingHTTPServer(("0.0.0.0", web_port), handler)
+  print(f"Web server listening on 0.0.0.0:{web_port} and serving {export_path}")
+  server.serve_forever()
+
 
 def main():
   skeleton_template = read_file("/app/templates/skeleton.html")
@@ -31,12 +42,27 @@ def main():
   if config_directory[-1] != "/":
     config_directory += "/"
 
+  # Get web server port
+  try:
+    web_port = int(grab_env("WEB_PORT", 8080))
+  except TypeError:
+    print("ERROR: WEB_PORT could not be converted to an integer.")
+    hang()
+
+  web_thread = threading.Thread(
+    target=start_web_server,
+    args=(export_path, web_port),
+    daemon=True,
+  )
+  web_thread.start()
+
   if debug_output:
     print("Starting with the following env variables:")
     print(f" | DEBUG_OUTPUT: {debug_output}")
     print(f" | CHECK_INTERVAL: {check_interval}")
     print(f" | OUTPUT_DIR: {export_path}")
     print(f" | CONFIG_DIR: {config_directory}")
+    print(f" | WEB_PORT: {web_port}")
 
   while True:
     files = os.listdir(config_directory)

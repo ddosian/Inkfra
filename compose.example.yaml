@@ -2,14 +2,10 @@
 services:
   inkfra:
     image: ddosian/inkfra:latest
+    environment:
+      WEB_PORT: "8080"
     volumes:
       - ./config:/config:ro
-      - ./output:/output:rw
-    restart: unless-stopped
-  nginx:
-    image: nginx:latest
-    volumes:
-      - ./output:/usr/share/nginx/html:ro
     ports:
-      - 80:80
+      - 80:8080
     restart: unless-stopped
