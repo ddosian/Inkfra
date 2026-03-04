@@ -44,7 +44,7 @@ def main():
 
   web_thread = threading.Thread(
     target=start_web_server,
-    args=(export_path),
+    args=(export_path,),
     daemon=True,
   )
   web_thread.start()
