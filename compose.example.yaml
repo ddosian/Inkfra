@@ -2,8 +2,6 @@
 services:
   inkfra:
     image: ddosian/inkfra:latest
-    environment:
-      WEB_PORT: "8080"
     volumes:
       - ./config:/config:ro
       - ./output:/output:rw
