@@ -6,6 +6,7 @@ services:
       WEB_PORT: "8080"
     volumes:
       - ./config:/config:ro
+      - ./output:/output:rw
     ports:
       - 80:8080
     restart: unless-stopped
